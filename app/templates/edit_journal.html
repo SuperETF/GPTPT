@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>일지 수정</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <h1>일지 수정</h1>
+  <form action="/edit-journal/{{ journal.id }}" method="post">
+    <label>내용:</label>
+    <textarea name="content" required>{{ journal.content }}</textarea>
+    <br>
+    <button type="submit">저장</button>
+  </form>
+  <a href="/write-journal">뒤로가기</a>
+</body>
+</html>

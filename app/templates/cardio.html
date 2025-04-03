@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>심폐 능력 평가</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        function calculateCardio() {
+            const maxHR = parseInt(document.getElementById("max_hr").value);
+            const restingHR = parseInt(document.getElementById("resting_hr").value);
+            if(isNaN(maxHR) || isNaN(restingHR)) {
+                alert("최대 심박수와 안정시 심박수를 올바르게 입력해주세요.");
+                return;
+            }
+            const target60 = Math.round((maxHR - restingHR) * 0.6 + restingHR);
+            const target70 = Math.round((maxHR - restingHR) * 0.7 + restingHR);
+            const target80 = Math.round((maxHR - restingHR) * 0.8 + restingHR);
+            const target90 = Math.round((maxHR - restingHR) * 0.9 + restingHR);
+            document.getElementById("result").innerText =
+                "60%: " + target60 + " bpm, " +
+                "70%: " + target70 + " bpm, " +
+                "80%: " + target80 + " bpm, " +
+                "90%: " + target90 + " bpm";
+        }
+    </script>
+</head>
+<body>
+    <h1>심폐 능력 평가</h1>
+    <form action="/cardio" method="post">
+        <!-- 회원 ID는 hidden 필드로 전달 -->
+        <input type="hidden" name="phone" value="{{ phone }}">
+        <label>최대 심박수 (bpm):</label>
+        <input type="number" id="max_hr" name="max_hr" required>
+        <br>
+        <label>안정시 심박수 (bpm):</label>
+        <input type="number" id="resting_hr" name="resting_hr" required>
+        <br>
+        <button type="button" onclick="calculateCardio()">계산 미리보기</button>
+        <p id="result"></p>
+        <button type="submit">평가 저장 및 회원 페이지로 이동</button>
+    </form>
+    <a href="/member/{{ member_id }}">회원 상세 페이지로 돌아가기</a>
+</body>
+</html>

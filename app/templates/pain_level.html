@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>통증 입력</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>통증 정도 입력</h1>
+    <form action="/pain-level" method="post">
+        <!-- 회원 ID를 숨은 필드로 전달 -->
+        <input type="hidden" name="phone" value="{{ phone }}">
+        <label>NRS 점수 (0~10):</label>
+        <input type="number" name="nrs" min="0" max="10" required>
+        <br>
+        <label>통증 부위:</label>
+        <input type="text" name="pain_area" required>
+        <br>
+        <button type="submit">저장</button>
+    </form>
+    <a href="/member/{{ phone }}">회원 상세 페이지로 돌아가기</a>
+</body>
+</html>

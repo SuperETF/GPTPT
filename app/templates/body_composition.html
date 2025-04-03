@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>체성분 입력</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>체성분 입력</h1>
+    <form action="/body-composition" method="post">
+        <!-- 회원 ID는 hidden 필드로 전달 -->
+        <input type="hidden" name="phone" value="{{ phone }}">
+        <label>체중 (kg):</label>
+        <input type="number" step="0.1" name="weight" required>
+        <br>
+        <label>체지방률 (%):</label>
+        <input type="number" step="0.1" name="body_fat" required>
+        <br>
+        <label>근육량 (kg):</label>
+        <input type="number" step="0.1" name="muscle_mass" required>
+        <br>
+        <button type="submit">저장</button>
+    </form>
+    <a href="/member/{{ member_id }}">회원 상세 페이지로 돌아가기</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 상세 페이지 - {{ member.name }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>회원 상세 페이지: {{ member.name }}</h1>
+    <p>회원 식별 번호: {{ member.phone }}</p>
+
+    <hr>
+    <h2>체성분 입력</h2>
+    <a href="/body-composition/{{ member.phone }}">
+        <button type="button">체성분 입력 페이지로 이동</button>
+    </a>
+
+    <hr>
+    <h2>운동 일지 작성 및 루틴 생성</h2>
+    <a href="/journal-calendar/{{ member.phone }}">
+        <button type="button">캘린더 기반 운동 일지 작성 페이지로 이동</button>  
+    </a>
+
+    <hr>
+    <h2>심폐 능력 평가</h2>
+    <a href="/cardio/{{ member.phone }}">
+        <button type="button">심폐 능력 평가 페이지로 이동</button>
+    </a>
+
+    <hr>
+    <h2>통증 정도 입력</h2>
+    <a href="/pain-level/{{ member.phone }}">
+        <button type="button">통증 입력 페이지로 이동</button>
+    </a>
+
+    <hr>
+    <a href="/dashboard">대시보드로 돌아가기</a>
+</body>
+</html>

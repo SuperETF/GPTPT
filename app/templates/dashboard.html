@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>트레이너 대시보드</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>트레이너 대시보드</h1>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>등록일</th>
+        </tr>
+        {% for member in members %}
+        <tr>
+            <td><a href="/member/{{ member.phone }}">{{ member.name }}</a></td>
+            <td>{{ member.phone }}</td>
+            <td>{{ member.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <p>
+        <a href="/register-member">회원 등록하기</a> | 
+        <a href="/logout">로그아웃</a>
+    </p>
+</body>
+</html>
