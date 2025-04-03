@@ -2,8 +2,7 @@ fastapi
 uvicorn
 python-dotenv
 openai
-supabase-py
 jinja2
 python-multipart
 itsdangerous
-git+https://github.com/supabase-community/supabase-py.git@master#egg=supabase_py
+git+https://github.com/supabase-community/supabase-py.git@main#egg=supabase_py
