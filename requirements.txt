@@ -2,7 +2,6 @@ fastapi
 uvicorn
 python-dotenv
 openai
-supabase-py
 jinja2
 python-multipart
-python-3.9.16
+git+https://github.com/supabase-community/supabase-py.git@master#egg=supabase_py
